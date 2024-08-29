@@ -49,7 +49,7 @@ class Network(object):
         self.args = parser.parse_args()
 
         with open(self.args.config) as fp:
-            self.cfg = yaml.load(fp)
+            self.cfg = yaml.full_load(fp)
             print('load configure file at {}'.format(self.args.config))
         self.model_name = self.args.model
         print('Usage model :{}'.format(self.model_name))
