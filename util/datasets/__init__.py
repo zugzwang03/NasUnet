@@ -43,7 +43,7 @@ acronyms = {
     'camvid': 'camvid'
 }
 
-dir = '/train_tiny_data/imgseg/'
+dir = '/content/drive/MyDrive/VOC2012_train_val/VOC2012_train_val'
 #=
 #dir = '../../../training_data/imageSeg/'
 
