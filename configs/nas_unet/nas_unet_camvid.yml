@@ -39,7 +39,7 @@ training:
     geno_type: NAS_UNET_NEW_V1
     init_channels: 64
     depth: 6
-    epoch: 800
+    epoch: 30
     batch_size: 10
     report_freq: 20
     n_workers: 4
