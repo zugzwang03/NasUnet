@@ -9,7 +9,7 @@ data:
 searching:
     init_channels: 16
     depth: 4
-    epoch: 300
+    epoch: 30
     batch_size: 6
     report_freq: 20
     n_workers: 2
@@ -39,7 +39,7 @@ training:
     geno_type: NASUNET
     init_channels: 32
     depth: 5
-    epoch: 200
+    epoch: 20
     batch_size: 6
     report_freq: 10
     n_workers: 2
