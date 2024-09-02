@@ -294,8 +294,8 @@ def data_to_array(base_path, store_path, img_rows, img_cols):
             np.save(os.path.join(store_path,'y_train.npy'), masks)
         elif count==1:
             images = (images - mu)/sigma
-            np.save(os.path.join(store_path, 'X_val.npy'), images)
-            np.save(os.path.join(store_path,'y_val.npy'), masks)
+            np.save(os.path.join(store_path, 'X_train.npy'), images)
+            np.save(os.path.join(store_path,'y_train.npy'), masks)
         count+=1
 
     fileList =  os.listdir(os.path.join(base_path, 'TestData'))
@@ -314,7 +314,7 @@ def data_to_array(base_path, store_path, img_rows, img_cols):
     images = images.astype(np.float32)
     images = (images - mu)/sigma
 
-    np.save(os.path.join(store_path,'X_test.npy'), images)
+    np.save(os.path.join(store_path,'X_train.npy'), images)
     np.save(os.path.join(store_path, 'test_n_imgs.npy'), np.array(n_imgs))
     print('save file in {}'.format(store_path))
 
@@ -327,13 +327,13 @@ def load_train_data(store_path):
 
 def load_val_data(store_path):
 
-    X_val = np.load(os.path.join(store_path, 'X_val.npy'))
-    y_val = np.load(os.path.join(store_path, 'y_val.npy'))
+    X_val = np.load(os.path.join(store_path, 'X_train.npy'))
+    y_val = np.load(os.path.join(store_path, 'y_train.npy'))
     return X_val, y_val
 
 def load_test_data(store_path):
-    X_test = np.load(os.path.join(store_path, 'X_test.npy'))
-    x_slice_array = np.load(os.path.join(store_path, 'y_val.npy'))
+    X_test = np.load(os.path.join(store_path, 'X_train.npy'))
+    x_slice_array = np.load(os.path.join(store_path, 'y_train.npy'))
     return X_test, x_slice_array
 
 def get_test_list(base_path):
