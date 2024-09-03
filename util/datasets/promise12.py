@@ -400,6 +400,8 @@ class Promise12(BaseDataset):
         img = Image.fromarray(img, mode='F')
 
         if self.mode != 'test':
+            height, width, channels = target.shape
+            target = target.reshape(height * width, channels)
             target = Image.fromarray(target, mode='L')
             # 2. do joint transform
             if self.joint_transform is not None:
