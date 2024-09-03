@@ -395,6 +395,8 @@ class Promise12(BaseDataset):
             img, target = self.X_val[index], self.y_val[index]
         elif self.mode == 'test': # the test target indicate the number of slice for each case
             img, target = self.X_test[index], self.test_file_list
+        height, width, channels = img.shape
+        img = img.reshape(height * width, channels)
         img = Image.fromarray(img, mode='F')
 
         if self.mode != 'test':
