@@ -96,12 +96,12 @@ class Network(object):
             split = int(np.floor(0.8 * num_train))
             self.logger.info('split training data : 0.8')
             self.train_queue = data.DataLoader(trainset, batch_size=self.batch_size,
-                                               sampler=torch.utils.data.sampler.SubsetRandomSampler(indices[:split]),
+                                               sampler=torch.utils.data.sampler.SubsetRandomSampler(indices[:split].view(-1)),
                                                **kwargs)
 
             self.valid_queue = data.DataLoader(trainset, batch_size=self.batch_size,
                                                sampler=torch.utils.data.sampler.SubsetRandomSampler(
-                                                   indices[split:num_train]),
+                                                   indices[split:num_train].view(-1)),
                                                **kwargs)
         else:
             self.train_queue = data.DataLoader(trainset, batch_size=self.batch_size,

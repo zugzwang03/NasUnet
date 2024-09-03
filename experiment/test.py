@@ -93,7 +93,7 @@ class TestNetwork(object):
 
             self.valid_queue = data.DataLoader(self.trainset, batch_size=self.batch_size,
                                                sampler=torch.utils.data.sampler.SubsetRandomSampler(
-                                                   indices[split:num_train]),
+                                                   indices[split:num_train].view(-1)),
                                                **kwargs)
             self.test_queue = data.DataLoader(self.testset, batch_size=self.batch_size,
                                                drop_last=False, shuffle=False, **kwargs)

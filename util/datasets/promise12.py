@@ -395,10 +395,10 @@ class Promise12(BaseDataset):
             img, target = self.X_val[index], self.y_val[index]
         elif self.mode == 'test': # the test target indicate the number of slice for each case
             img, target = self.X_test[index], self.test_file_list
-        img = Image.fromarray(img, mode='RGB')
+        img = Image.fromarray(img, mode='F')
 
         if self.mode != 'test':
-            target = Image.fromarray(target, mode='RGB')
+            target = Image.fromarray(target, mode='L')
             # 2. do joint transform
             if self.joint_transform is not None:
                 img, target = self.joint_transform(img, target)
