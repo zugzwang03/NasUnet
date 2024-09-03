@@ -398,7 +398,7 @@ class Promise12(BaseDataset):
         img = Image.fromarray(img, mode='RGB')
 
         if self.mode != 'test':
-            target = Image.fromarray(target, mode='L')
+            target = Image.fromarray(target, mode='RGB')
             # 2. do joint transform
             if self.joint_transform is not None:
                 img, target = self.joint_transform(img, target)
