@@ -395,7 +395,7 @@ class Promise12(BaseDataset):
             img, target = self.X_val[index], self.y_val[index]
         elif self.mode == 'test': # the test target indicate the number of slice for each case
             img, target = self.X_test[index], self.test_file_list
-        img = Image.fromarray(img, mode='F')
+        img = Image.fromarray(img, mode='RGB')
 
         if self.mode != 'test':
             target = Image.fromarray(target, mode='L')
