@@ -177,7 +177,7 @@ class RandomTranslate(object):
                       scale=1.0,
                       angle=0.0,
                       shear=0.0,
-                      fillcolor=0))
+                      fill=0))
 
 class RandomRotate(object):
     def __init__(self, degree):
@@ -191,14 +191,14 @@ class RandomRotate(object):
                       scale=1.0,
                       angle=rotate_degree,
                       resample=Image.NEAREST,
-                      fillcolor=(0, 0, 0) if len(img.size) == 3 else 0,
+                      fill=(0, 0, 0) if len(img.size) == 3 else 0,
                       shear=0.0),
             tf.affine(mask,
                       translate=(0, 0),
                       scale=1.0,
                       angle=rotate_degree,
                       resample=Image.NEAREST,
-                      fillcolor=0,
+                      fill=0,
                       shear=0.0))
 
 class Scale(object):
